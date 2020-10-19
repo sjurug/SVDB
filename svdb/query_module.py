@@ -55,7 +55,7 @@ def main(args):
             else:
                 if line[1] != "#":
                     if not args.prefix:
-                       print ("##SVDB_version={} cmd=\"{}\"".format(args.version," ".join(sys.argv)))
+                       sys.stdout.write("##SVDB_version={} cmd=\"{}\"".format(args.version," ".join(sys.argv)))
                     else:
                        f.write( "##SVDB_version={} cmd=\"{}\"".format(args.version," ".join(sys.argv)) )
                 if not args.prefix:
