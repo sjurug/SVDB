@@ -24,6 +24,9 @@ def main(args):
 
     for line in f:
         if line[0] == "#":
+            print("##Before")
+            print(line)
+            print("##After")
             meta_line=line.replace("#","");
             content=meta_line.split("=");
 
@@ -55,9 +58,10 @@ def main(args):
             else:
                 if line[1] != "#":
                     if not args.prefix:
-                       sys.stdout.write("##SVDB_version={} cmd=\"{}\"".format(args.version," ".join(sys.argv)))
+                        sys.stdout.write("##TEST inside")
+                        sys.stdout.write("##SVDB_version={} cmd=\"{}\"".format(args.version," ".join(sys.argv)))
                     else:
-                       f.write( "##SVDB_version={} cmd=\"{}\"".format(args.version," ".join(sys.argv)) )
+                        f.write( "##SVDB_version={} cmd=\"{}\"".format(args.version," ".join(sys.argv)) )
                 if not args.prefix:
                     sys.stdout.write(line)
                 else:
